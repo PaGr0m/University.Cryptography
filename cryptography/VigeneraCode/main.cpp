@@ -7,12 +7,7 @@
 
 using namespace std;
 
-const unsigned int alphabetPower = 25;
-
-//QString decode(QString word)
-//{
-
-//}
+const int alphabetPower = 26;
 
 int main(int argc, char *argv[])
 {
@@ -21,9 +16,6 @@ int main(int argc, char *argv[])
     const QString originalText = "ATTACKATDAWN";
     const QString key = "LEMON";
 
-//    const QString originalText = "LEMON";
-//    const QString key = "ATTACKATDAWN";
-
     QString newKey = "";
     QString encryptedText = "";
 
@@ -31,7 +23,7 @@ int main(int argc, char *argv[])
     for (char symbol = 65; symbol <= 90; symbol++) cout << int(symbol) << ") " << symbol << endl;
 
     // a=97, z=122
-//    for (char symbol = 97; symbol <= 122; symbol++) cout << symbol << endl;
+    for (char symbol = 97; symbol <= 122; symbol++) cout << int(symbol) << ") " << symbol << endl;
 
     if (originalText.length() > key.length())
     {
@@ -46,23 +38,23 @@ int main(int argc, char *argv[])
         newKey.append(key);
         newKey.remove(originalText.length(), key.length() - originalText.length());
     }
-
-    qDebug() << originalText;
-    qDebug() << newKey;
-
-
-   // ENCODE
-    for (int i = 0; i < originalText.length(); i++)
+    else
     {
-//        encryptedText.at(i) = (originalText.at(i).toLatin1() + newKey.at(i).toLatin1());
+        newKey = key;
     }
 
     int offset = 65;
-    qDebug() << int(originalText.at(0).toLatin1()) - offset << int(newKey.at(0).toLatin1()) - offset;
-    qDebug() <<
+    // ENCODE
+    for (int i = 0; i < originalText.length(); i++)
+        encryptedText.append(QChar(char((int(originalText.at(i).toLatin1()) - offset + int(newKey.at(i).toLatin1()) - offset) % alphabetPower + offset)));
 
-//    qDebug() << (originalText.at(0).toLatin1() + newKey.at(0).toLatin1() - 65) % 26;
-//    qDebug() << char((originalText.at(0).toLatin1() + newKey.at(0).toLatin1()) % 90);
+    // DECODE
+    for (int i = 0; i < originalText.length(); i++)
+        encryptedText.append(QChar((int(originalText.at(i).toLatin1()) - offset - (int(newKey.at(i).toLatin1()) - offset) + alphabetPower) % alphabetPower + offset));
+
+    qDebug() << originalText;
+    qDebug() << newKey;
+    qDebug() << encryptedText;
 
     return a.exec();
 }
