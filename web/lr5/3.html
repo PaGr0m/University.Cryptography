@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3</title>
+</head>
+<body>
+    <h3>
+        Дан номер месяца — целое число в диапазоне 1–12 (1 — январь, 2 —
+        февраль и т. д.). Определить количество дней в этом месяце для невисокосного
+        года.
+    </h3>
+
+    <form name="form3">
+        <div>
+            Введите номер месяца: <input type ="text" name="val" size=10>
+            <input type ="button" value="Результат" onClick="month(form3)"><br />
+        </div>
+    </form>
+</body>
+</html>
+
+<script>
+    function month( obj ) {
+        var number = obj.val.value;
+
+        switch (number) {
+            case '1':
+            case '3':
+            case '5':
+            case '7':
+            case '8':
+            case '10':
+            case '12':
+                alert(31);
+                break;
+
+            case '4':
+            case '6':
+            case '9':
+            case '11':
+                alert(30);
+                break;
+
+            case '2':
+                alert(28 );
+                break;
+            default:
+                alert( 'Wrong data' );
+                break;
+        }
+    }
+</script>

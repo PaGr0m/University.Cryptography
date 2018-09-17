@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 2 </title>
+</head>
+<body>
+    <h3>
+        Даны три целых числа.
+        Найти количество положительных чисел в исходном
+        наборе.
+    </h3>
+
+    <form name="form2">
+        <div>
+            Введите число A: <input type ="text" name="valA" size=10>
+        </div>
+
+        <div>
+            Введите число B: <input type ="text" name="valB" size=10>
+        </div>
+
+        <div>
+            Введите число C: <input type ="text" name="valC" size=10>
+        </div>
+
+        <input type ="button" value="Результат" onClick="condition(form2)">
+
+        <p></p>
+        <div>
+            Ответ: <input type ="text" name="result" size=10>
+        </div>
+
+        <input type ="reset" value="Очистить">
+    </form>
+</body>
+</html>
+
+<script>
+    function condition( obj ) {
+        var a = obj.valA.value;
+        var b = obj.valB.value;
+        var c = obj.valC.value;
+        var count = 0;
+
+        if ( a > 0 )
+            count++;
+        if ( b > 0 )
+            count++;
+        if ( c > 0 )
+            count++;
+
+        obj.result.value = count;
+    }
+</script>

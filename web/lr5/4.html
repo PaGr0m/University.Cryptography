@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4</title>
+</head>
+<body>
+    <h3>
+        Дано вещественное число — цена 1 кг конфет. Вывести стоимость 1,
+        2, …, 10 кг конфет.
+    </h3>
+
+    <form name="form4">
+        <div>
+        Стоимость конфет: <input type ="text" name="val" size=10>
+        </div>
+
+        <input type ="button" value="Рассчитать" onClick="price(form4)">
+    </form>
+</body>
+</html>
+
+<script>
+    function price( obj ) {
+        var val = obj.val.value;
+
+        for (var i = 1; i < 11; i++)
+            alert(val*i)
+    }
+
+</script>

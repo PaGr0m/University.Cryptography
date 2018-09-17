@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>1</title>
 </head>
 <body>
-$END$
+    <h3>
+        Дан диаметр окружности d.
+        Найти ее длину L = π·d. В качестве значения π использовать 3,14.
+    </h3>
+
+    <form name="form1">
+        <div>
+            d: <input type ="text" name="diameter" size=10>
+        </div>
+        <input type ="button" value="Рассчитать длину" onClick="circleLength(form1)">
+
+        <p></p>
+
+        <div>
+            Ответ: <input type ="text" name="result" size=10>
+        </div>
+
+        <p></p>
+
+        <input type ="reset" value="Очистить">
+    </form>
 </body>
 </html>
+
+<script>
+    function circleLength( obj ) {
+        var diameter = obj.diameter.value;
+        obj.result.value = 3.14 * diameter;
+    }
+</script>
