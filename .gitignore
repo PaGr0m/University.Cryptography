@@ -45,6 +45,9 @@ CMakeLists.txt.user*
 # This file is used to ignore files which are generated
 # ----------------------------------------------------------------------------
 
+.idea
+.idea/
+
 !core/
 *.*#
 *.a
