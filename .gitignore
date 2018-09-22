@@ -47,6 +47,8 @@ CMakeLists.txt.user*
 
 .idea
 .idea/
+venv
+venv/
 
 !core/
 *.*#
