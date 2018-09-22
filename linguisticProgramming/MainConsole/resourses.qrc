@@ -2,5 +2,10 @@
     <qresource prefix="/input">
         <file>resourses/test.txt</file>
         <file>resourses/programTest.txt</file>
+        <file>resourses/test_1.txt</file>
+        <file>resourses/test_2.txt</file>
+        <file>resourses/test_3.txt</file>
+        <file>resourses/test_4.txt</file>
+        <file>resourses/test_5.txt</file>
     </qresource>
 </RCC>

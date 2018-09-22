@@ -1,0 +1,4 @@
+Var 
+arr, b, c; 
+arr := “-“arr; 
+arr := (b-arr)+c
