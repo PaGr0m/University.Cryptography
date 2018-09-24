@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7</title>
+</head>
+<body>
+<h3>
+    Дано целое число N и набор из N чисел.
+    Найти номер минимального элемента из данного набора.
+</h3>
+
+    <form name="form7">
+        Введите N: <input type ="text" id="val" size=10>
+        <p>
+            <input type ="button" value="Найти MIN" onClick="myFunc(form7)">
+        </p>
+
+        <input type ="reset" value="Очистить">
+    </form>
+</body>
+</html>
+
+<script>
+    function getRandomInRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function myFunc(obj){
+        var count = document.getElementById('val').value;
+        var arr = [];
+        var min = 1000;
+
+        for (var i = 0; i < count; i++)
+        {
+            arr[i] = getRandomInRange(0, 99);
+            if (min > arr[i])
+                min = arr[i];
+        }
+
+        alert(arr + "  |  " + min);
+    }
+</script>

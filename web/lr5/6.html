@@ -25,13 +25,20 @@
 </html>
 
 <script>
-    function TrianglePS(a) {
-        alert('Периметр = ' + (3*a));
-        alert('Площадь = ' + (Math.pow(a, 2) * Math.sqrt(3) / 4));
+    function TrianglePS(a, P, S) {
+        P = 3*a;
+        S = Math.pow(a, 2) * Math.sqrt(3) / 4;
     }
 
     function qwe(obj) {
         var val = obj.val.value;
-        TrianglePS(val);
+        var settings = {
+            P : 0,
+            S : 0
+        };
+
+        TrianglePS(val, settings.P, settings.S);
+        alert(settings.P);
+        alert(settings.S);
     }
 </script>

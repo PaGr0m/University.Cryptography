@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8</title>
+</head>
+<body>
+    <h3>
+        Дано целое число N (> 1), а также первый член A и знаменатель D гео-
+        метрической прогрессии. Сформировать и вывести массив размера N, со-
+        держащий N первых членов данной прогрессии:
+        A, A·D, A·D 2 , A·D 3 , ... .
+    </h3>
+
+    <form name="form8">
+        <div>
+            Введите N: <input type ="text" id="N" size=10>
+        </div>
+        <div>
+            Введите A: <input type ="text" id="A" size=10>
+        </div>
+        <div>
+            Введите D: <input type ="text" id="D" size=10>
+        </div>
+
+        <p>
+            <input type ="button" value="Рассчитать" onClick="myFunc(form8)">
+        </p>
+
+        <input type ="reset" value="Очистить">
+    </form>
+</body>
+</html>
+
+<script>
+    function myFunc() {
+        var N = document.getElementById("N").value;
+        var A = document.getElementById("A").value;
+        var D = document.getElementById("D").value;
+
+        var arr = [];
+        arr[0] = A;
+        for (var i = 1; i < N; i++)
+        {
+            arr[i] = (A + Math.pow(D, i));
+        }
+
+        alert(arr);
+    }
+</script>

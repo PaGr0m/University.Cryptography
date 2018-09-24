@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9</title>
+
+</head>
+<body>
+    <h3>
+        Дан массив размера N и целые числа K и L (1 ≤ K ≤ L ≤ N). Найти
+        среднее арифметическое элементов массива с номерами от K до L включи-
+        тельно.
+    </h3>
+
+    <form name="form9">
+        <div>
+            Введите N: <input type ="text" id="N" size=10>
+        </div>
+        <div>
+            Введите K: <input type ="text" id="K" size=10>
+        </div>
+        <div>
+            Введите L: <input type ="text" id="L" size=10>
+        </div>
+
+        <p>
+            <input type ="button" value="Рассчитать" onClick="myFunc(form9)">
+        </p>
+
+        <input type ="reset" value="Очистить">
+    </form>
+</body>
+</html>
+
+<script>
+    function getRandomInRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function myFunc() {
+        var N = document.getElementById("N").value;
+        var K = document.getElementById("K").value;
+        var L = document.getElementById("L").value;
+
+        var arr = [];
+        var res = 0;
+        for (var i = 0; i < N; i++)
+            arr[i] = getRandomInRange(0, 50);
+
+        for (var i = K; i <= L; i++)
+            res = res + arr[i];
+
+        res = res / (L-K+1);
+
+        alert(arr + "   |   " + res);
+    }
+</script>
