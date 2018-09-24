@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="all">
+        <div id="table">
+            <table class="table">
+                <tr>
+                    <td class="td0" id="black"></td>
+                    <td class="td1" id="white"></td>
+                    <td class="td2" id="red"></td>
+                    <td class="td3" id="green"></td>
+                    <td class="td4" id="blue"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="block">
+            <h1 class="head">
+                TITLE
+            </h1>
+
+            <div class="text">
+                Something
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .all{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .td0{
+        background-color: black;
+        height: 75px;
+    }
+
+    .td1{
+        background-color: white;
+    }
+
+    .td2{
+        background-color: red;
+    }
+
+    .td3{
+        background-color: green;
+    }
+
+    .td4{
+        background-color: blue;
+    }
+</style>
+
+<script>
+    document.getElementById('table').addEventListener("click", textColor);
+    document.getElementById('table').addEventListener("contextmenu", backColor);
+
+    function textColor(e) {
+        var s = '', s2 = 'text';
+        s = e.target.id;
+        document.body.style.color=s;
+    }
+    function backColor(e) {
+        var s = '', s2 = 'text';
+        s = e.target.id;
+        document.body.style.backgroundColor=s;
+    }
+</script>

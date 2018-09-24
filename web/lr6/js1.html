@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form name="Contact" onsubmit="fields(this)">
+        <label>	Enter Your First Name:
+            <input id="firstName" type="text" Placeholder="First Name" required autocomplete="off"/></label> <br /> <br />
+        <label>	Enter Your Last Name:
+            <input id="LastName" type="text" Placeholder="Last Name" required autocomplete="off"/></label> <br /> <br />
+        <label>	Enter Your e-mail:
+            <input id="eMail" type="email" Placeholder="e-mail" required autocomplete="off"/></label> <br /> <br />
+        <input type="submit" value="Enter" />
+    </form>
+</body>
+</html>
+
+<script>
+    function fields(form)
+    {
+        var labels = form.getElementsByTagName('label');
+        var resBlock = document.createElement('label');
+        resBlock.className = "results";
+
+        for (var i = 0; i < labels.length; i++)
+        {
+            resBlock.innerHTML += '<br>' + labels[i].firstElementChild.value ;
+        }
+        document.body.appendChild(resBlock);
+        event.preventDefault();
+    }
+</script>
