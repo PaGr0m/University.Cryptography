@@ -10,23 +10,20 @@ class SyntacticalAnalyzer
 {
 public:
     SyntacticalAnalyzer();
+    SyntacticalAnalyzer(QVector<Lexem> lexemBox);
 
 public:
     void readFileToString();
 
-    bool declarationOfVariables(QVectorIterator <Lexem> iterator);
-    bool variableList(QVectorIterator <Lexem> iterator);
-
-    bool statementsList(QVector<Lexem>::iterator iterator);
+    bool declarationOfVariables();
+    bool variableList();
 
 //    bool statement()
-    bool expression(QVectorIterator <Lexem> iterator);
-    bool subExpression(QVectorIterator <Lexem> iterator);
-
-
-
+    bool expression();
+    bool subExpression();
 
     void setLexemBox(QVector<Lexem> lexemBox);
+    void setIterator(QVector<Lexem>::iterator iterator);
     bool isCorrect(QString text);
 
 private:
@@ -41,7 +38,7 @@ private:
     QString text;
 
     QVector<Lexem> lexemBox;
-
+    QVector<Lexem>::iterator iterator;
 };
 
 #endif // SYNTACTICALANALYZER_H

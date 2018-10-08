@@ -31,8 +31,10 @@ public:
 private:
     const QVector<QString> serviceWords = {"Var"};
     const QVector<QString> unaryOperations = {"+", "-", "*", "/"};
-    const QVector<QString> signs = {";", ".", "=", ":", ","};
-    const QVector<QString> otherSymbols = {":=", ")", "("};
+//    const QVector<QString> commas = {",", ";", ""};
+//    const QVector<QString> signs = {".", "=", ":"};
+    const QVector<QString> signs = {",", ";", ":", "(", ")"};
+//    const QVector<QString> otherSymbols = {":=", ")", "("};
     const QVector<QString> stringSymbols = {" ", "\n", "\r"};
 
 private:

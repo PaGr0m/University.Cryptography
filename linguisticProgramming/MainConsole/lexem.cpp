@@ -22,6 +22,11 @@ Lexem::Types Lexem::getType() const
     return this->type;
 }
 
+void Lexem::convertDebug()
+{
+    // if ()
+}
+
 bool Lexem::operator ==(Lexem::Types type)
 {
     return this->type == type;

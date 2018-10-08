@@ -14,11 +14,15 @@ public:
         CONST,
         BINARY,
         UNARY,
-        SIGNS,
-        OTHER,
 
+        // SIGNS
         COMMA,
-        COMMA2,
+        SEMICOLON,
+        ASSIGMENT,
+
+        BRACKET_OPENING,
+        BRACKET_CLOSING,
+
         NONE
     };
 
@@ -29,6 +33,8 @@ public:
 
     QString getName() const;
     Types getType() const;
+
+    void convertDebug();
 
     bool operator == (enum Types type);
     bool operator == (const Lexem lexem);

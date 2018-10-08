@@ -5,7 +5,7 @@
 #include "lexicalanalyzer.h"
 #include "syntacticalanalyzer.h"
 
-const QString PATH_TO_FILE = ":/input/resourses/test_1.txt";
+const QString PATH_TO_FILE = ":/input/resourses/test_4.txt";
 
 int main(int argc, char *argv[])
 {
@@ -19,14 +19,14 @@ int main(int argc, char *argv[])
 
     SyntacticalAnalyzer syntacticalAnalyzer;
     syntacticalAnalyzer.setLexemBox(lexemBox);
+    syntacticalAnalyzer.setIterator(lexemBox.begin());
+
 
 //    qDebug() << "0";
 //    QVector<Lexem>::iterator iter = 0;
 //    qDebug() << *(lexemBox.begin());
-
-    QVectorIterator<Lexem> iterator(lexemBox);
-    iterator.toFront();
-    syntacticalAnalyzer.declarationOfVariables(iterator);
+    bool flag  = syntacticalAnalyzer.declarationOfVariables();
+    qDebug() << flag;
 //    qDebug() << "2";
 
     return a.exec();
