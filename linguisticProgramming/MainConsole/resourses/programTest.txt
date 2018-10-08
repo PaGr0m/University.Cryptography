@@ -1,3 +1,3 @@
-Var   a1bc , qwe;
+Var .a1,a2:=Vara3a4=bc , qwe;
 abc:=-532*3/434+3;
 qwe := abc ;

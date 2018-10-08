@@ -16,10 +16,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    lexicalanalyzer.cpp
+    lexicalanalyzer.cpp \
+    lexem.cpp \
+    syntacticalanalyzer.cpp
 
 HEADERS += \
-    lexicalanalyzer.h
+    lexicalanalyzer.h \
+    lexem.h \
+    syntacticalanalyzer.h
 
 RESOURCES += \
     resourses.qrc

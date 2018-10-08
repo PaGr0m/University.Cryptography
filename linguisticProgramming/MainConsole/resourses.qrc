@@ -8,4 +8,8 @@
         <file>resourses/test_4.txt</file>
         <file>resourses/test_5.txt</file>
     </qresource>
+    <qresource prefix="/docs">
+        <file>resourses/inputLanguagepng</file>
+        <file>resourses/targetLanguage.png</file>
+    </qresource>
 </RCC>

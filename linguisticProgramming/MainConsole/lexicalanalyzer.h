@@ -6,6 +6,8 @@
 #include <QVector>
 #include <QDebug>
 
+#include "lexem.h"
+
 class LexicalAnalyzer
 {
 public:
@@ -23,14 +25,15 @@ public:
     void setFile(QString path);
     void setPath(QString path);
 
-    void printInfo(QString value, QString type);
-    void run();
+
+    QVector<Lexem> run();
 
 private:
     const QVector<QString> serviceWords = {"Var"};
     const QVector<QString> unaryOperations = {"+", "-", "*", "/"};
-    const QVector<QString> signs = {";", ".", "=", ":"};
-    const QVector<QString> otherSymbols = {":=", ".", " "};
+    const QVector<QString> signs = {";", ".", "=", ":", ","};
+    const QVector<QString> otherSymbols = {":=", ")", "("};
+    const QVector<QString> stringSymbols = {" ", "\n", "\r"};
 
 private:
     bool printFlag = true;
@@ -40,7 +43,7 @@ private:
     QString text;
     QString path = "";
 
-    QVector<QString> lexemBox;
+    QVector<Lexem> lexemBox;
 };
 
 #endif // LEXICALANALYZER_H

@@ -2,7 +2,7 @@
 
 LexicalAnalyzer::LexicalAnalyzer()
 {
-
+    this->path = "";
 }
 
 LexicalAnalyzer::LexicalAnalyzer(QString path)
@@ -22,7 +22,8 @@ bool LexicalAnalyzer::isConst(QString word)
 bool LexicalAnalyzer::isIdent(QString word)
 {
     foreach (QChar symbol, word)
-        if (!symbol.isLetter())
+        if ((symbol < QChar('A') || symbol > QChar('Z')) &&
+                (symbol < QChar('a') || symbol > QChar('z')))
             return false;
     return true;
 }
@@ -62,21 +63,18 @@ void LexicalAnalyzer::setPath(QString path)
     this->path = path;
 }
 
-void LexicalAnalyzer::printInfo(QString value, QString type)
-{
-    if (printFlag)
-        qDebug() << value + " --> " + type;
-}
-
-void LexicalAnalyzer::run()
+QVector<Lexem> LexicalAnalyzer::run()
 {
     setFile(this->path);
     readFileToString();
 
     while (index < text.length())
     {
+        Lexem::Types type;
         QString word;
         QString symbol = text.at(index);
+
+//        qDebug() << symbol;
 
         // IDENT
         if (isIdent(symbol))
@@ -95,10 +93,12 @@ void LexicalAnalyzer::run()
                 }
             }
 
-            if (serviceWords.contains(word))
-                printInfo(word, "SERVICE_WORDS");
+            symbol = word;
+
+            if (serviceWords.contains(symbol))
+                type = Lexem::SERVICE_WORD;
             else
-                printInfo(word, "IDENT");
+                type = Lexem::IDENT;
         }
 
         // CONST
@@ -117,32 +117,66 @@ void LexicalAnalyzer::run()
                     break;
                 }
             }
-            printInfo(word, "CONST");
+            symbol = word;
+            type = Lexem::CONST;
         }
 
-        // UNART OPERATIONS
+        // UNARY and BINARY OPERATIONS
         else if (unaryOperations.contains(symbol))
-            printInfo(symbol, "UNARY");
+        {
+            if ((lexemBox.last().getName() == ":=") || (lexemBox.last().getName() == "("))
+                type = Lexem::BINARY;
+            else
+                type = Lexem::UNARY;
+        }
+
         // SIGNS
         else if (signs.contains(symbol))
-            printInfo(symbol, "SIGNS");
+        {
+            if (text.at(index+1) == "=")
+            {
+                symbol.append(text.at(index+1));
+                index++;
+            }
+
+            if (symbol == ",")
+                type = Lexem::COMMA;
+            else if (symbol == ";")
+                type = Lexem::COMMA2;
+            else
+                type = Lexem::SIGNS;
+        }
 
         // OTHER
         else if (otherSymbols.contains(symbol))
-            printInfo(symbol, "OTHER");
+        {
+            type = Lexem::OTHER;
+        }
+
+        // CHECK (" ", "\n", "\r")
+        else if (stringSymbols.contains(symbol))
+        {
+            // empty
+        }
 
         // ERROR
-//        else
-//        {
-//            // TODO: create error function, check "\n", "\r", " "
-//            // Alphabet is A-Za-z
-//            qDebug() << "Error";
-//            break;
-//        }
+        else
+        {
+            qDebug() << "Error";
+            lexemBox.clear();
+            break;
+        }
+
+        // Add LEXEM to box
+        if (symbol != ' ' && symbol != '\n' && symbol != '\r')
+            lexemBox.append(Lexem(symbol, type));
 
         // NEXT ITERATOR
         index++;
     }
+//    qDebug() << lexemBox;
+
+    return lexemBox;
 }
 
 

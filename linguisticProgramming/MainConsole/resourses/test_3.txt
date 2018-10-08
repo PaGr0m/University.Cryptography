@@ -1,3 +1,2 @@
-Var 
-alpha, beta, c; 
-alpha := (“-“beta ”*” c ) “+” (a ) “/” 21; 
+Var  a1a, A, а;
+a := 1;
