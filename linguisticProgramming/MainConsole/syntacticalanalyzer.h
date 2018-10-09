@@ -10,38 +10,25 @@ class SyntacticalAnalyzer
 {
 public:
     SyntacticalAnalyzer();
+    SyntacticalAnalyzer(QVector<Lexem> lexemBox);
 
 public:
     void readFileToString();
+    void expression();
 
-    bool declarationOfVariables(QVectorIterator <Lexem> iterator);
-    bool variableList(QVectorIterator <Lexem> iterator);
-
-    bool statementsList(QVector<Lexem>::iterator iterator);
-
-//    bool statement()
-    bool expression(QVectorIterator <Lexem> iterator);
-    bool subExpression(QVectorIterator <Lexem> iterator);
-
-
-
+    bool declarationOfVariables();
+    bool variableList();
+    bool subExpression();
 
     void setLexemBox(QVector<Lexem> lexemBox);
-    bool isCorrect(QString text);
-
-private:
-    const QVector<QString> serviceWords = {"Var"};
-    const QVector<QString> unaryOperations = {"+", "-", "*", "/"};
-    const QVector<QString> signs = {";", ".", "=", ":", ","};
-    const QVector<QString> otherSymbols = {":=", "."};
-    const QVector<QString> stringSymbols = {" ", "\n", "\r"};
+    void setIterator(QVector<Lexem>::iterator iterator);
 
 private:
     QFile file;
     QString text;
 
     QVector<Lexem> lexemBox;
-
+    QVector<Lexem>::iterator iterator;
 };
 
 #endif // SYNTACTICALANALYZER_H

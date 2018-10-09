@@ -16,7 +16,6 @@ public:
 
     bool isConst(QString word);
     bool isIdent(QString word);
-    bool isOther(QString word);
     bool isSigns(QString word);
     bool isUnary(QString word);
 
@@ -25,14 +24,12 @@ public:
     void setFile(QString path);
     void setPath(QString path);
 
-
     QVector<Lexem> run();
 
 private:
     const QVector<QString> serviceWords = {"Var"};
     const QVector<QString> unaryOperations = {"+", "-", "*", "/"};
-    const QVector<QString> signs = {";", ".", "=", ":", ","};
-    const QVector<QString> otherSymbols = {":=", ")", "("};
+    const QVector<QString> signs = {",", ";", ":", "(", ")"};
     const QVector<QString> stringSymbols = {" ", "\n", "\r"};
 
 private:

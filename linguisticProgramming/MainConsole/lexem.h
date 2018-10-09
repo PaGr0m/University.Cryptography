@@ -14,11 +14,14 @@ public:
         CONST,
         BINARY,
         UNARY,
-        SIGNS,
-        OTHER,
 
         COMMA,
-        COMMA2,
+        SEMICOLON,
+        ASSIGMENT,
+
+        BRACKET_OPENING,
+        BRACKET_CLOSING,
+
         NONE
     };
 
@@ -29,6 +32,7 @@ public:
 
     QString getName() const;
     Types getType() const;
+    QString getTypesName() const;
 
     bool operator == (enum Types type);
     bool operator == (const Lexem lexem);
@@ -39,7 +43,6 @@ public:
 
 private:
     QString name;
-//    QString type;
     Types type;
 };
 

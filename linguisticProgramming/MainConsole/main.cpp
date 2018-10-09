@@ -11,33 +11,29 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    // INIT LEXICAL ANALYZER
     LexicalAnalyzer lexicalAnalyzer;
     lexicalAnalyzer.setPath(PATH_TO_FILE);
 
     QVector<Lexem> lexemBox = lexicalAnalyzer.run();
-    qDebug() << lexemBox;
 
+    // INIT SYNTACTICAL ANALYZER
     SyntacticalAnalyzer syntacticalAnalyzer;
     syntacticalAnalyzer.setLexemBox(lexemBox);
+    syntacticalAnalyzer.setIterator(lexemBox.begin());
 
-//    qDebug() << "0";
-//    QVector<Lexem>::iterator iter = 0;
-//    qDebug() << *(lexemBox.begin());
-
-    QVectorIterator<Lexem> iterator(lexemBox);
-    iterator.toFront();
-    syntacticalAnalyzer.declarationOfVariables(iterator);
-//    qDebug() << "2";
+    // DEBUG
+    qDebug() << lexemBox;
+    qDebug() << syntacticalAnalyzer.declarationOfVariables();
 
     return a.exec();
 }
 
 /*
-    TODO: перегрузить оператор << для класса Lexem
-          проверить код. Указать на setters
-          можно ли переименовать проект?
-          добавить return в лексический анализатор
-          переопределить readFileToString с void на bool (проверка на открытие файла)
-          добавить enum.
-          добавить enum в Lexem, проверять в синтаксисе по типу
+    TODO: 1) переименовать функции
+          2) проверить код. Указать на setters
+          3) можно ли переименовать проект? Стоит ли сделать класс,
+             который будет агригировать анализаторы, и запускать все классы внутри
+          4) переопределить readFileToString с void на bool (проверка на открытие файла)
+          5) переписать логику в конструкторы
 */
