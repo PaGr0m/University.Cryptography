@@ -38,11 +38,7 @@ bool SyntacticalAnalyzer::declarationOfVariables()
                 }
             }
             iterator++;
-    //        qDebug() << *iterator;
-    //        qDebug() << iterator;
         }
-
-        qDebug() << "end";
         return true;
     }
     else
@@ -51,9 +47,9 @@ bool SyntacticalAnalyzer::declarationOfVariables()
 
 bool SyntacticalAnalyzer::variableList()
 {
+
     if (*iterator == Lexem::IDENT)
     {
-        qDebug() << *iterator;
         this->iterator++;
 
         if(*iterator == Lexem::COMMA) // ,
@@ -70,7 +66,7 @@ bool SyntacticalAnalyzer::variableList()
         return false;
 }
 
-bool SyntacticalAnalyzer::expression()
+void SyntacticalAnalyzer::expression()
 {
     if (*iterator == Lexem::UNARY)
         iterator++;
@@ -96,10 +92,9 @@ bool SyntacticalAnalyzer::subExpression()
              *iterator == Lexem::CONST)
     {
         iterator++;
-        qDebug() << "subExp 2 --> " << *iterator;
+//        qDebug() << "subExp 2 --> " << *iterator;
         if (*iterator == Lexem::SEMICOLON)
         {
-
             return true;
         }
         else if (*iterator == Lexem::BINARY)
@@ -113,6 +108,8 @@ bool SyntacticalAnalyzer::subExpression()
     {
         return true;
     }
+    else
+        return false;
 }
 
 void SyntacticalAnalyzer::setLexemBox(QVector<Lexem> lexemBox)
@@ -123,25 +120,6 @@ void SyntacticalAnalyzer::setLexemBox(QVector<Lexem> lexemBox)
 void SyntacticalAnalyzer::setIterator(QVector<Lexem>::iterator iterator)
 {
     this->iterator = iterator;
-}
-
-bool SyntacticalAnalyzer::isCorrect(QString text)
-{
-
-//    if (lexemBox.first() == Lexem::SERVICE_WORD)
-//        return false;
-
-
-//    foreach (Lexem lexem, lexemBox) {
-//        if (lexem[] == "Var")
-
-//        if (lexem == Lexem::OTHER)
-//            return false;
-//    }
-//    if (!text.isEmpty())
-//        return false;
-
-    return true;
 }
 
 

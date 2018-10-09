@@ -22,9 +22,34 @@ Lexem::Types Lexem::getType() const
     return this->type;
 }
 
-void Lexem::convertDebug()
+QString Lexem::getTypesName() const
 {
-    // if ()
+    switch (type)
+    {
+        case SERVICE_WORD:
+            return "SERVICE_WORD";
+        case IDENT:
+            return "IDENT";
+        case CONST:
+            return "CONST";
+        case BINARY:
+            return "BINARY";
+        case UNARY:
+            return "UNARY";
+        case COMMA:
+            return "COMMA";
+        case SEMICOLON:
+            return "SEMICOLON";
+        case ASSIGMENT:
+            return "ASSIGMENT";
+        case BRACKET_OPENING:
+            return "BRACKET_OPENING";
+        case BRACKET_CLOSING:
+            return "BRACKET_CLOSING";
+
+        default:
+            return "NONE";
+    }
 }
 
 bool Lexem::operator ==(Lexem::Types type)
@@ -50,7 +75,7 @@ bool Lexem::operator !=(const Lexem lexem)
 QDebug operator <<(QDebug debug, const Lexem lexem)
 {
     QDebugStateSaver saver(debug);
-    debug.nospace() << "(" << lexem.getName() << ", " << lexem.getType() << ")";
+    debug.nospace() << "(" << lexem.getName() << ", " << lexem.getTypesName() << ")";
 
     return debug;
 }

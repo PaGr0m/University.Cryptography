@@ -14,24 +14,14 @@ public:
 
 public:
     void readFileToString();
+    void expression();
 
     bool declarationOfVariables();
     bool variableList();
-
-//    bool statement()
-    bool expression();
     bool subExpression();
 
     void setLexemBox(QVector<Lexem> lexemBox);
     void setIterator(QVector<Lexem>::iterator iterator);
-    bool isCorrect(QString text);
-
-private:
-    const QVector<QString> serviceWords = {"Var"};
-    const QVector<QString> unaryOperations = {"+", "-", "*", "/"};
-    const QVector<QString> signs = {";", ".", "=", ":", ","};
-    const QVector<QString> otherSymbols = {":=", "."};
-    const QVector<QString> stringSymbols = {" ", "\n", "\r"};
 
 private:
     QFile file;

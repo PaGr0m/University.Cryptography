@@ -38,11 +38,6 @@ bool LexicalAnalyzer::isSigns(QString word)
     return signs.contains(word);
 }
 
-bool LexicalAnalyzer::isOther(QString word)
-{
-//    return otherSymbols.contains(word);
-}
-
 void LexicalAnalyzer::readFileToString()
 {
     QString string;
@@ -73,8 +68,6 @@ QVector<Lexem> LexicalAnalyzer::run()
         Lexem::Types type;
         QString word;
         QString symbol = text.at(index);
-
-//        qDebug() << symbol;
 
         // IDENT
         if (isIdent(symbol))
@@ -130,12 +123,6 @@ QVector<Lexem> LexicalAnalyzer::run()
                 type = Lexem::UNARY;
         }
 
-//        // COMMAS
-//        else if(commas.contains(symbol))
-//        {
-
-//        }
-
         // SIGNS
         else if (signs.contains(symbol))
         {
@@ -176,8 +163,6 @@ QVector<Lexem> LexicalAnalyzer::run()
         // NEXT ITERATOR
         index++;
     }
-//    qDebug() << "1";
-//    qDebug() << lexemBox;
 
     return lexemBox;
 }

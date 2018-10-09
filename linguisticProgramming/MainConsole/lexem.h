@@ -15,7 +15,6 @@ public:
         BINARY,
         UNARY,
 
-        // SIGNS
         COMMA,
         SEMICOLON,
         ASSIGMENT,
@@ -33,8 +32,7 @@ public:
 
     QString getName() const;
     Types getType() const;
-
-    void convertDebug();
+    QString getTypesName() const;
 
     bool operator == (enum Types type);
     bool operator == (const Lexem lexem);
@@ -45,7 +43,6 @@ public:
 
 private:
     QString name;
-//    QString type;
     Types type;
 };
 
