@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Musician - Create </title>
+{% endblock %}
+
+{% block content %}
+    <form class="" action="{% url 'musician_create_url' %}" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="form-group">
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+
+                {{ field.label }}
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <div align="center">
+            <button type="submit" name="button" class="btn btn-primary"> Create musician </button>
+        </div>
+    </form>
+{% endblock %}

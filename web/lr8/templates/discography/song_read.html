@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Song - Read</title>
+{% endblock %}
+
+{% block content %}
+    <form class="" action="{{ song.get_absolute_url }}" method="post">
+        {% csrf_token %}
+
+{#        <div class="card text-white bg-dark mb-4">#}
+{#	    <div class="card text-white bg-secondary mb-4">#}
+        <div class="card text-white bg-info mb-4">
+            <h2 class="card-header">{{ song.musician }} - {{ song.name|title }}</h2>
+            <div class="card-body">
+                <h5 class="card-title">Album: <b>{{ song.album|title }}</b></h5>
+                {% if song.genre %} <p class="card-text">Genre: {{ song.genre|title }}</p> {% endif %}
+                {% if song.lyrics %} <p class="card-text">{{ song.lyrics|title }}</p> {% endif %}
+                {% if song.lyrics_ru %} <p class="card-text">{{ song.lyrics_ru|title }}</p> {% endif %}
+            </div>
+            <h5 class="card-footer"> {{ song.genre }} </h5>
+        </div>
+    </form>
+{% endblock %}

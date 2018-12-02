@@ -15,8 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+from .views import redirect_url
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("labs.urls"))
-]
+    path("", redirect_url),
+    path("admin/", admin.site.urls),
+    path("labs/", include("labs.urls")),
+    path("discography/", include("discography.urls"))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

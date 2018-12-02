@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title> Musician - Read </title>
+{% endblock %}
+
+{% block content %}
+    <form class="" action="{{ musician.get_absolute_url }}" method="post">
+        {% csrf_token %}
+
+{#        <div class="card text-white bg-dark mb-4">#}
+{#	    <div class="card text-white bg-secondary mb-4">#}
+        <div class="card text-white bg-info mb-4">
+            <h5 class="card-header">{{ musician.date_pub }}</h5>
+            <div class="card-body">
+                <h5 class="card-title"><b>{{ musician.name|title }}</b></h5>
+                <p class="card-text">{{ musician.information|title }}</p>
+                <a href="{{ musician.get_absolute_url }}" class="btn btn-primary">Read</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

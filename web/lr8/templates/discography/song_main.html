@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    <title> Song - Main </title>
+{% endblock %}
+
+{% block content %}
+    {% for song in songs %}
+
+		<!-- <div class="card text-white bg-info mb-3"> -->
+        <div class="card text-white bg-dark mb-4">
+            <h5 class="card-header">{{ song.musician }}</h5>
+            <div class="card-body">
+                <h5 class="card-title"><b>{{ song.name|title }}</b></h5>
+                <p class="card-text">{{ song.lyrics|title }}</p>
+                <a href="{{ song.get_absolute_url }}" class="btn btn-primary">Read</a>
+            </div>
+		</div>
+    {% endfor %}
+{% endblock %}
