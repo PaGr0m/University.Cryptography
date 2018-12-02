@@ -146,9 +146,6 @@
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <widget class="QLineEdit" name="lineEditCiphertext">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
           <property name="minimumSize">
            <size>
             <width>150</width>
@@ -168,6 +165,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButtonEncode">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">     background-color: red;
      border-style: outset;
@@ -203,7 +203,7 @@
         <item>
          <widget class="QLineEdit" name="lineEditDecipheredText">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -221,6 +221,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="pushButtonDecode">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">     background-color: #1861f4;
      border-style: outset;
@@ -248,7 +251,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
