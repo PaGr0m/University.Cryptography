@@ -6,27 +6,23 @@
 
 #include "lexicalanalyzer.h"
 
+
 class SyntacticalAnalyzer
 {
 public:
     SyntacticalAnalyzer();
     SyntacticalAnalyzer(QVector<Lexem> lexemBox);
-
-public:
-    void readFileToString();
-    void expression();
+    SyntacticalAnalyzer(LexicalAnalyzer lexicalAnalyzer);
 
     bool declarationOfVariables();
     bool variableList();
     bool subExpression();
 
+    void expression();
     void setLexemBox(QVector<Lexem> lexemBox);
     void setIterator(QVector<Lexem>::iterator iterator);
 
 private:
-    QFile file;
-    QString text;
-
     QVector<Lexem> lexemBox;
     QVector<Lexem>::iterator iterator;
 };

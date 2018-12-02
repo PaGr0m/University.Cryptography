@@ -5,39 +5,42 @@ SyntacticalAnalyzer::SyntacticalAnalyzer()
 
 }
 
-
-void SyntacticalAnalyzer::readFileToString()
+SyntacticalAnalyzer::SyntacticalAnalyzer(QVector<Lexem> lexemBox):
+    lexemBox(lexemBox)
 {
-    QString string;
 
-    if (file.open(QIODevice::ReadOnly))
-        string.append(file.readAll());
+}
 
-    this->text = string;
+SyntacticalAnalyzer::SyntacticalAnalyzer(LexicalAnalyzer lexicalAnalyzer):
+    lexemBox(lexicalAnalyzer.getLexemBox())
+{
+
 }
 
 bool SyntacticalAnalyzer::declarationOfVariables()
 {
+    this->iterator = lexemBox.begin();
+
     // первый блок - объявление переменных
     if (*iterator == Lexem::SERVICE_WORD)
     {
-        iterator++;
+        this->iterator++;
         variableList();
-        iterator++;
+        this->iterator++;
 
         // второй блок - описание вычислений
         while (iterator != lexemBox.end())
         {
             if (*iterator == Lexem::IDENT)
             {
-                iterator++;
+                this->iterator++;
                 if (*iterator == Lexem::ASSIGMENT)
                 {
-                    iterator++;
+                    this->iterator++;
                     expression();
                 }
             }
-            iterator++;
+            this->iterator++;
         }
         return true;
     }
@@ -69,7 +72,7 @@ bool SyntacticalAnalyzer::variableList()
 void SyntacticalAnalyzer::expression()
 {
     if (*iterator == Lexem::UNARY)
-        iterator++;
+        this->iterator++;
 
     subExpression();
 }
@@ -79,27 +82,25 @@ bool SyntacticalAnalyzer::subExpression()
     if (*iterator == Lexem::BRACKET_OPENING) // (
     {
         // вызываю выражение
-        iterator++;
+        this->iterator++;
         expression();
 
-        iterator++;
+        this->iterator++;
         if (*iterator != Lexem::BRACKET_CLOSING) // )
         {
             return false;
         }
     }
-    else if (*iterator == Lexem::IDENT ||
-             *iterator == Lexem::CONST)
+    else if (*iterator == Lexem::IDENT || *iterator == Lexem::CONST)
     {
-        iterator++;
-//        qDebug() << "subExp 2 --> " << *iterator;
+        this->iterator++;
         if (*iterator == Lexem::SEMICOLON)
         {
             return true;
         }
         else if (*iterator == Lexem::BINARY)
         {
-            iterator++;
+            this->iterator++;
             return subExpression();
         }
     }
