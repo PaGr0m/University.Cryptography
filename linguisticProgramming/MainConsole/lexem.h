@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDebugStateSaver>
 
+
 class Lexem
 {
 public:
@@ -25,7 +26,6 @@ public:
         NONE
     };
 
-public:
     Lexem();
     Lexem(QString name,
           Types type);
@@ -42,8 +42,8 @@ public:
     friend QDebug operator <<(QDebug debug, const Lexem lexem);
 
 private:
-    QString name;
-    Types type;
+    QString name = "";
+    Types type = Lexem::NONE;
 };
 
 QDebug operator <<(QDebug debug, const Lexem lexem);

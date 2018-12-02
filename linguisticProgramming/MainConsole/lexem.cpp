@@ -1,15 +1,15 @@
 #include "lexem.h"
 
-Lexem::Lexem()
+Lexem::Lexem():
+    name(), type(Lexem::NONE)
 {
-    this->name = "";
-    this->type = Lexem::NONE;
+
 }
 
-Lexem::Lexem(QString name, Lexem::Types type)
+Lexem::Lexem(QString name, Lexem::Types type):
+    name(name), type(type)
 {
-    this->name = name;
-    this->type = type;
+
 }
 
 QString Lexem::getName() const
@@ -75,7 +75,7 @@ bool Lexem::operator !=(const Lexem lexem)
 QDebug operator <<(QDebug debug, const Lexem lexem)
 {
     QDebugStateSaver saver(debug);
-    debug.nospace() << "(" << lexem.getName() << ", " << lexem.getTypesName() << ")";
+    debug.nospace() << "(" << lexem.getName() << ", " << lexem.getTypesName() << ")" << "\n";
 
     return debug;
 }

@@ -1,6 +1,6 @@
 QT -= gui
 
-CONFIG += c++11 console
+CONFIG += c++14 console
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
@@ -18,12 +18,14 @@ SOURCES += \
         main.cpp \
     lexicalanalyzer.cpp \
     lexem.cpp \
-    syntacticalanalyzer.cpp
+    syntacticalanalyzer.cpp \
+    semanticanalyzer.cpp
 
 HEADERS += \
     lexicalanalyzer.h \
     lexem.h \
-    syntacticalanalyzer.h
+    syntacticalanalyzer.h \
+    semanticanalyzer.h
 
 RESOURCES += \
     resourses.qrc

@@ -1,5 +1,6 @@
 #include "lexicalanalyzer.h"
 
+
 LexicalAnalyzer::LexicalAnalyzer()
 {
     this->path = "";
@@ -7,8 +8,7 @@ LexicalAnalyzer::LexicalAnalyzer()
 
 LexicalAnalyzer::LexicalAnalyzer(QString path)
 {
-    file.setFileName(path);
-    readFileToString();
+    this->path = path;
 }
 
 bool LexicalAnalyzer::isConst(QString word)
@@ -41,6 +41,7 @@ bool LexicalAnalyzer::isSigns(QString word)
 void LexicalAnalyzer::readFileToString()
 {
     QString string;
+    QFile file(path);
 
     if (file.open(QIODevice::ReadOnly))
         string.append(file.readAll());
@@ -48,9 +49,9 @@ void LexicalAnalyzer::readFileToString()
     this->text = string;
 }
 
-void LexicalAnalyzer::setFile(QString path)
+QVector<Lexem> LexicalAnalyzer::getLexemBox()
 {
-    file.setFileName(path);
+    return this->lexemBox;
 }
 
 void LexicalAnalyzer::setPath(QString path)
@@ -60,7 +61,6 @@ void LexicalAnalyzer::setPath(QString path)
 
 QVector<Lexem> LexicalAnalyzer::run()
 {
-    setFile(this->path);
     readFileToString();
 
     while (index < text.length())

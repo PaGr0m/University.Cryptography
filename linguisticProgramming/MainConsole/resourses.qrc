@@ -12,4 +12,7 @@
         <file>resourses/inputLanguagepng</file>
         <file>resourses/targetLanguage.png</file>
     </qresource>
+    <qresource prefix="/output">
+        <file>resourses/out_1.txt</file>
+    </qresource>
 </RCC>
