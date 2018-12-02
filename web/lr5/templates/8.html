@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="../scripts/script8.js"></script>
     <title>8</title>
 </head>
 <body>
@@ -31,20 +32,3 @@
     </form>
 </body>
 </html>
-
-<script>
-    function myFunc() {
-        var N = document.getElementById("N").value;
-        var A = document.getElementById("A").value;
-        var D = document.getElementById("D").value;
-
-        var arr = [];
-        arr[0] = A;
-        for (var i = 1; i < N; i++)
-        {
-            arr[i] = (A + Math.pow(D, i));
-        }
-
-        alert(arr);
-    }
-</script>
