@@ -1,0 +1,25 @@
+.all{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.td0{
+    background-color: black;
+    height: 75px;
+}
+
+.td1{
+    background-color: white;
+}
+
+.td2{
+    background-color: red;
+}
+
+.td3{
+    background-color: green;
+}
+
+.td4{
+    background-color: blue;
+}
