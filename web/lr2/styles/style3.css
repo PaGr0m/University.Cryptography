@@ -1,0 +1,17 @@
+body {
+    width: 300px;
+    margin: 0 auto;
+}
+
+h1, p {
+    text-align: center;
+}
+
+h1 {
+    font-weight: normal;
+}
+
+pre {
+    font-size: 14px;
+    margin: 0 -46px;
+}
