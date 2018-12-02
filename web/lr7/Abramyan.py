@@ -24,6 +24,7 @@ def main_menu():
           " Найти среднее арифметическое элементов массива с номерами от K до L включительно.")
     print("10. Дан массив размера N. Поменять местами его минимальный и максимальный элементы.")
     print("11. Дана строка. Преобразовать в ней все прописные латинские буквы в строчные.")
+    print("\n")
 
 
 def task_1(diameter: float) -> float:
@@ -126,7 +127,14 @@ def task_5(number: int) -> bool:
     return False
 
 
-def task_6(side: float) -> tuple:
+def triangle_ps(a: float) -> tuple:
+    perimeter = 3 * a
+    square = math.pow(a, 2) * math.sqrt(3) / 4
+
+    return perimeter, square
+
+
+def task_6(side: float):
     """
     Proc4°:
     Описать процедуру TrianglePS(a, P, S), вычисляющую по стороне a
@@ -138,10 +146,9 @@ def task_6(side: float) -> tuple:
     :return: периметр, площадь
     """
 
-    perimeter = 3 * side
-    square = math.pow(side, 2) * math.sqrt(3) / 4
-
-    return perimeter, square
+    perimeter, square = triangle_ps(side)
+    print(perimeter)
+    print(square)
 
 
 def task_7(array: list) -> int:
@@ -173,9 +180,8 @@ def task_8(count: int, term: float, denominator: int) -> list:
     """
 
     array = []
-    array.append(term)
 
-    for i in range(1, count):
+    for i in range(0, count):
         array.append(term * math.pow(denominator, i))
 
     return array
@@ -232,7 +238,7 @@ def task_11(string: str) -> str:
     :return: измененная строка
     """
 
-    return string.upper()
+    return string.lower()
 
 
 """ MAIN """
@@ -240,23 +246,31 @@ if __name__ == "__main__":
     while True:
         os.system("clear")
         main_menu()
+
         answer = int(input("Enter the task number >> "))
 
         if answer == 1:
+            print(task_1.__doc__)
             print(task_1(float(input("Enter the diameter --> "))))
         elif answer == 2:
+            print(task_2.__doc__)
             print(task_2(int(input("Enter the first number --> ")),
                          int(input("Enter the second number --> ")),
                          int(input("Enter the third number --> "))))
         elif answer == 3:
+            print(task_3.__doc__)
             print(task_3(int(input("Enter the month --> "))))
         elif answer == 4:
+            print(task_4.__doc__)
             print(task_4(float(input("Enter the price --> "))))
         elif answer == 5:
+            print(task_5.__doc__)
             print(task_5(int(input("Enter the number --> "))))
         elif answer == 6:
+            print(task_6.__doc__)
             print(task_6(float(input("Enter the side of treangle --> "))))
         elif answer == 7:
+            print(task_7.__doc__)
             number = int(input("Enter the number --> "))
             array = []
             for el in range(number):
@@ -264,10 +278,12 @@ if __name__ == "__main__":
             print(array)
             print(task_7(array))
         elif answer == 8:
+            print(task_8.__doc__)
             print(task_8(int(input("Enter the count --> ")),
                          float(input("Enter the term --> ")),
                          int(input("Enter the denominator --> "))))
         elif answer == 9:
+            print(task_9.__doc__)
             number = int(input("Enter the number --> "))
             array = []
             for el in range(number):
@@ -277,6 +293,7 @@ if __name__ == "__main__":
             print(array)
             print(task_9(array, K, L))
         elif answer == 10:
+            print(task_10.__doc__)
             number = int(input("Enter the number --> "))
             array = []
             for el in range(number):
@@ -284,6 +301,9 @@ if __name__ == "__main__":
             print(array)
             print(task_10(array))
         elif answer == 11:
+            print(task_11.__doc__)
             print(task_11(input("Enter the string --> ")))
         else:
             print("Error")
+
+        input("\n <-- Put Enter to continue -->")

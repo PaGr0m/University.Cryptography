@@ -3,23 +3,14 @@ import math
 
 class Parallelepiped:
 
-    def __init__(self):
-        self.length = 0
-        self.width = 0
-        self.height = 0
+    def __init__(self, length=0, width=0, height=0):
+        self.length = length
+        self.width = width
+        self.height = height
 
         self.square = 0
         self.amount = 0
         self.diagonal = 0
-
-    # def __init__(self, length, width, height):
-    #     self.length = length
-    #     self.width = width
-    #     self.height = height
-    #
-    #     self.square = 0
-    #     self.amount = 0
-    #     self.diagonal = 0
 
     def __str__(self):
         return "A = {}\n" \
