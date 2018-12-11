@@ -83,7 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
-        'NAME': 'lr8_2',
+        'NAME': 'lr8_3',
         'USER': 'pagrom',
         'PASSWORD': 'Grom1997',
         'HOST': '127.0.0.1',
@@ -129,7 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/img/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
@@ -138,3 +138,10 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = (
     BASE_DIR
 )
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "pagrom27@gmail.com"
+EMAIL_HOST_PASSWORD = "Pavel Gromov"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False

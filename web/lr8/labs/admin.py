@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Order, Image
+from .models import Order, ImageModel
 
 admin.site.register(Order)
-admin.site.register(Image)
+admin.site.register(ImageModel)

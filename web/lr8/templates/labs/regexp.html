@@ -1,0 +1,26 @@
+{% extends "base_labs.html" %}
+
+{% block title %}
+    <title> RegExp </title>
+{% endblock %}
+
+{% block content %}
+    <form class="" action="{% url 'regexp_create_url' %}" method="post">
+    {% csrf_token %}
+        {% for field in form %}
+            <div class="form-group">
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+
+                {{ field.label }}
+                {{ field }}
+            </div>
+        {% endfor %}
+    <div align="center">
+        <button type="submit" name="button" class="btn btn-primary"> Check </button>
+    </div>
+    </form>
+{% endblock %}

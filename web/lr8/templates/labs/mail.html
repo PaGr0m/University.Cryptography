@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <form class="" action="{% url 'image_create_url' %}" method="post">
+    <form class="" action="{% url 'mail_send_url' %}" method="post">
     {% csrf_token %}
         {% for field in form %}
             <div class="form-group">
@@ -14,7 +14,7 @@
             </div>
         {% endfor %}
     <div align="center">
-        <button type="submit" name="button" class="btn btn-primary"> Add image </button>
+        <button type="submit" name="button" class="btn btn-primary"> Add order </button>
     </div>
     </form>
 {% endblock %}

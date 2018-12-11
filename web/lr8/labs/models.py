@@ -51,8 +51,34 @@ class Order(models.Model):
         verbose_name_plural = "Заказы"
 
 
-class Image(models.Model):
-    # url_height = models.PositiveIntegerField()
-    # url_width = models.PositiveIntegerField()
+class ImageModel(models.Model):
+    image = models.ImageField(upload_to='')
 
-    image = models.ImageField(upload_to='img')
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+
+class MailModel(models.Model):
+    fio = models.CharField(verbose_name="ФИО",
+                           max_length=30)
+    message = models.CharField(verbose_name="Сообщение",
+                               max_length=30)
+
+
+class Auth(models.Model):
+    login = models.CharField(verbose_name="Логин",
+                             max_length=30)
+    password = models.CharField(verbose_name="Пароль",
+                                max_length=30)
+
+
+class RegExpModel(models.Model):
+    form_1 = models.CharField(verbose_name="Форма 1", max_length=30)
+    form_2 = models.CharField(verbose_name="Форма 2", max_length=30)
+    form_3 = models.CharField(verbose_name="Форма 3", max_length=30)
+    form_4 = models.CharField(verbose_name="Форма 4", max_length=30)
+    form_5 = models.CharField(verbose_name="Форма 5", max_length=30)
+    form_6 = models.CharField(verbose_name="Форма 6", max_length=30)
+    form_7 = models.CharField(verbose_name="Форма 7", max_length=30)
+    form_8 = models.CharField(verbose_name="Форма 8", max_length=30)
+    form_9 = models.CharField(verbose_name="Форма 9", max_length=30)
