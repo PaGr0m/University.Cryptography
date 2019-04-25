@@ -1,0 +1,4 @@
+Long Integer a, b, c
+Begin
+c = 5;
+End

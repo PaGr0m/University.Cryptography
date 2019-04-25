@@ -1,0 +1,6 @@
+Var a, b;
+Begin
+c := 4;
+b:= 5;
+a := 24;
+End

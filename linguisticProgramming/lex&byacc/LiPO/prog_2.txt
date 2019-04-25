@@ -1,0 +1,6 @@
+Var one, two;
+Begin
+   two:=159;
+   one:=-two+29; 
+End
+

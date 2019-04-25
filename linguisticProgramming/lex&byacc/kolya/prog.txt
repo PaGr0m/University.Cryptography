@@ -1,0 +1,7 @@
+Var a, b, c, d :Integer;
+Begin
+a=1;
+b=1+2;
+c=a*b;
+d=c*c*(-c};
+End

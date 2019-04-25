@@ -1,0 +1,88 @@
+%{
+#include <stdio.h>
+#include <string.h>
+
+void yyerror(const char *str)
+{
+    fprintf(stderr, "error: %s\n", str);
+}
+
+int yywrap()
+{
+    return 1;
+}
+
+main()
+{
+    yyparse();
+}
+%}
+
+%union {
+    char* str;
+}
+
+%token <str> 
+    SERVICE_WORD
+    CONST
+    IDENT
+    UNARY
+    BINARY
+    APPROP
+    COMMA 
+    SEMICOLON
+    ASSIGMENT
+    BRACKET_OPENING
+    BRACKET_CLOSING
+
+%type <str>
+    DESCRIPTION
+    VARIABLE_DECLARATION 
+    VARIABLE_LIST
+    ASSIGNMENT_LIST   
+    ASSIGNMENT  
+    EXPRESSION
+    SUBEXPRESSION
+    OPERAND
+
+
+%%
+PROGRAM:
+    VARIABLE_DECLARATION DESCRIPTION;
+
+DESCRIPTION:
+    ASSIGNMENT_LIST;
+
+VARIABLE_DECLARATION:
+    SERVICE_WORD VARIABLE_LIST SEMICOLON;
+
+VARIABLE_LIST:
+    IDENT | 
+    IDENT COMMA;
+
+ASSIGNMENT_LIST:    
+    ASSIGNMENT | 
+    ASSIGNMENT ASSIGNMENT_LIST;
+
+ASSIGNMENT:   
+    IDENT APPROP EXPRESSION SEMICOLON;
+
+EXPRESSION:     
+    UNARY SUBEXPRESSION | 
+    SUBEXPRESSION;
+
+SUBEXPRESSION:
+    BRACKET_OPENING EXPRESSION BRACKET_CLOSING | 
+    OPERAND | 
+    SUBEXPRESSION BINARY SUBEXPRESSION;
+
+OPERAND:    
+    IDENT | 
+    CONST;
+
+
+
+
+
+
+

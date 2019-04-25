@@ -1,0 +1,6 @@
+Var a,  Val, be;
+Begin
+    a:=15; be:=20;
+    Val:=(a+be)/be;
+End
+

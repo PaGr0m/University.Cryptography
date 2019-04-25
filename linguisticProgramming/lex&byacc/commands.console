@@ -1,0 +1,5 @@
+gcc lex.yy.c -lfl
+./a.out
+
+yacc -d me.y && lex me.lex && gcc lex.yy.c y.tab.c
+

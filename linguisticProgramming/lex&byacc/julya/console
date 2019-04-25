@@ -1,0 +1,2 @@
+byacc -d lipo.y && lex lipo.lex && gcc lex.yy.c y.tab.c
+

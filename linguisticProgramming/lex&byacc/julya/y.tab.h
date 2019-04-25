@@ -1,0 +1,14 @@
+#define KEY_INTEGER 257
+#define KEY_BEGIN 258
+#define KEY_END 259
+#define NUMBER 260
+#define IDENTIFIER 261
+#define OPERATION 262
+#define SEMICOLON 263
+#define COMMA 264
+#define SIGN 265
+#define MINUS 266
+#define OBRACKET 267
+#define EBRACKET 268
+#define PLUS 269
+#define UNARY 270

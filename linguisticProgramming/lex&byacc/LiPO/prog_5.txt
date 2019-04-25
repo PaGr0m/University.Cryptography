@@ -1,0 +1,7 @@
+Var dudu; 
+Var kolibry;
+Var Zomb;
+Begin
+dudu:=666; Zombie:=-dudu*(40/3); kolibry:=((((-Zombie-10)/(dudu+84))));
+End
+

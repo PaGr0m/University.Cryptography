@@ -1,0 +1,8 @@
+Var yes, kill,me;
+
+Begin
+   yes:=155; 
+me:=yes/12;
+kill:=-((kill+10)-(yes+kill))/20;
+End
+
