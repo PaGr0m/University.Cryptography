@@ -4,6 +4,7 @@ from django import forms
 from .models import Order, ImageModel, MailModel, Auth, RegExpModel
 
 import re
+import requests
 
 
 class OrderForm(ModelForm):
@@ -116,7 +117,6 @@ class RegExpForm(ModelForm):
 
     # custom
     def clean_form_7(self):
-        import re
 
         d = """\n\n\n\nher\n\n\n\n"""
 
@@ -125,7 +125,7 @@ class RegExpForm(ModelForm):
         # print(reg_d)
         # print(result_d)
 
-        result = re.match(r'(.|\n){6}', d).
+        result = re.match(r'(.|\n){6}', d)
         print(result)
 
     # smile
